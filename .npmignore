@@ -1,0 +1,26 @@
+# 源文件（发布时不需要）
+src/
+*.ts
+!index.d.ts
+*.vue
+
+# 开发配置文件
+vite.config.ts
+tsconfig.json
+.gitignore
+.npmignore
+
+# 测试文件
+tests/
+*.test.ts
+*.spec.ts
+
+# 文档
+docs/
+examples/
+
+# 其他
+.DS_Store
+*.log
+.vscode
+.idea

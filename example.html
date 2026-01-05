@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue3-border-progress 示例</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+    .example {
+      margin: 20px 0;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .example h3 {
+      margin-top: 0;
+      color: #333;
+    }
+    .controls {
+      margin-top: 15px;
+    }
+    button {
+      padding: 8px 16px;
+      margin-right: 10px;
+      cursor: pointer;
+      background: #409eff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    button:hover {
+      background: #66b1ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>vue3-border-progress 示例</h1>
+
+  <div class="example">
+    <h3>基础用法</h3>
+    <div id="app1"></div>
+    <div class="controls">
+      <button onclick="updateProgress1()">更新进度</button>
+    </div>
+  </div>
+
+  <div class="example">
+    <h3>自定义尺寸</h3>
+    <div id="app2"></div>
+  </div>
+
+  <div class="example">
+    <h3>自定义颜色</h3>
+    <div id="app3"></div>
+  </div>
+
+  <script type="module">
+    import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
+    import BorderProgress from './dist/index.js'
+
+    // 示例 1：基础用法
+    const app1 = createApp({
+      setup() {
+        const progress = ref(50)
+        window.updateProgress1 = () => {
+          progress.value = Math.floor(Math.random() * 100)
+        }
+        return { progress }
+      },
+      template: `
+        <BorderProgress :progress="progress">
+          <div style="text-align: center;">
+            <div style="font-size: 24px; font-weight: bold;">{{ progress }}%</div>
+            <div style="font-size: 12px; color: #666;">进度</div>
+          </div>
+        </BorderProgress>
+      `
+    })
+    app1.use(BorderProgress)
+    app1.mount('#app1')
+
+    // 示例 2：自定义尺寸
+    const app2 = createApp({
+      setup() {
+        return {}
+      },
+      template: `
+        <BorderProgress :progress="75" :width="200" :height="200">
+          <img src="https://via.placeholder.com/100" alt="logo" style="width: 100px; height: 100px;" />
+        </BorderProgress>
+      `
+    })
+    app2.use(BorderProgress)
+    app2.mount('#app2')
+
+    // 示例 3：自定义颜色
+    const app3 = createApp({
+      setup() {
+        return {}
+      },
+      template: `
+        <BorderProgress
+          :progress="60"
+          progress-color="#ff6b6b"
+          background-color="rgba(255, 107, 107, 0.1)"
+        >
+          <div style="text-align: center; color: #ff6b6b;">
+            <div style="font-size: 24px; font-weight: bold;">60%</div>
+            <div style="font-size: 12px;">红色主题</div>
+          </div>
+        </BorderProgress>
+      `
+    })
+    app3.use(BorderProgress)
+    app3.mount('#app3')
+  </script>
+</body>
+</html>
