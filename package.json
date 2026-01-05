@@ -12,7 +12,7 @@
     "charging",
     "typescript"
   ],
-  "author": "Your Name <your.email@example.com>",
+  "author": "hjc9246 <hjc9246@gmail.com>",
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -24,12 +24,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/vue3-border-progress.git"
+    "url": "https://github.com/hjc9246/vue3-border-progressbar.git"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/vue3-border-progress/issues"
+    "url": "https://github.com/hjc9246/vue3-border-progressbar/issues"
   },
-  "homepage": "https://github.com/yourusername/vue3-border-progress#readme",
+  "homepage": "https://github.com/hjc9246/vue3-border-progressbar#readme",
   "peerDependencies": {
     "vue": "^3.0.0"
   },
