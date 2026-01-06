@@ -123,13 +123,6 @@ const progress = ref(50)
 </BorderProgress>
 ```
 
-## 注意事项
-
-1. 进度条边缘距离内容边缘固定为 1 像素
-2. 当进度为 0 或 100 时，光点不显示
-3. 组件使用 ResizeObserver 监听内容尺寸变化
-4. SVG 尺寸会自动计算，确保不会出现负值
-
 ## 浏览器支持
 
 - Chrome >= 87
