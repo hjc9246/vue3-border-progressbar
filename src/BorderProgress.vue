@@ -54,7 +54,7 @@
   4. SVG 尺寸会自动计算，确保不会出现负值
 -->
 <template>
-  <div class="border-progress-wrapper" ref="wrapperRef">
+  <div class="border-progress-wrapper" ref="wrapperRef" :style="wrapperStyle">
     <svg
       v-if="svgWidth > 0 && svgHeight > 0"
       class="border-progress-svg"
@@ -199,6 +199,18 @@ const actualWidth = computed(() => {
 // 实际高度：如果设置了height则使用，否则使用内容高度
 const actualHeight = computed(() => {
   return props.height > 0 ? props.height : contentSize.value.height
+})
+
+// 容器样式
+const wrapperStyle = computed(() => {
+  const style: Record<string, string> = {}
+  if (props.width > 0) {
+    style.width = `${props.width}px`
+  }
+  if (props.height > 0) {
+    style.height = `${props.height}px`
+  }
+  return style
 })
 
 // 内边距：进度条边缘与内容边缘之间的间距
@@ -373,7 +385,7 @@ const lightPoint = computed(() => {
 })
 </script>
 
-<style scoped lang="less">
+<style scoped>
 .border-progress-wrapper {
   position: relative;
   display: inline-block;
@@ -399,7 +411,7 @@ const lightPoint = computed(() => {
 .progress-path-left {
   transform-box: fill-box;
   transform-origin: center;
-  transition: stroke-dashoffset 300ms ease-out;
+  transition: stroke-dashoffset v-bind(animationDuration + 'ms') ease-out;
   filter: drop-shadow(0 0 4px currentColor);
   animation: progressGlow 2s ease-in-out infinite;
 }
@@ -441,5 +453,11 @@ const lightPoint = computed(() => {
 .border-progress-content {
   position: relative;
   z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
 }
 </style>

@@ -83,7 +83,7 @@ const progressStyle = computed(() => ({
 }))
 </script>
 
-<style scoped lang="less">
+<style scoped>
 .border-progress-wrapper {
   position: relative;
   display: inline-block;
