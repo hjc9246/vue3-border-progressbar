@@ -71,12 +71,6 @@ const progress = ref(50)
 | backgroundColor | string | 'rgba(0, 0, 0, 0.1)' | 否 | 背景边框颜色 |
 | animationDuration | number | 300 | 否 | 进度条动画持续时间，单位：毫秒 |
 
-### Slots
-
-| 插槽名 | 说明 |
-|--------|------|
-| default | 进度条内部的内容 |
-
 ## 示例
 
 ### 基础用法
